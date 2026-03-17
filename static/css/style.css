@@ -1715,16 +1715,20 @@ embed, iframe, object {
 .ab-post-grid-item {
   display: flex;
   flex-direction: column;
+  min-width: 0; /* prevent grid blowout */
+  overflow: hidden;
 }
 
 .ab-block-post-grid-image {
   margin-bottom: 0;
+  overflow: hidden;
 }
 .ab-block-post-grid-image a {
   display: block;
 }
 .ab-block-post-grid-image img {
   width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   object-fit: cover;

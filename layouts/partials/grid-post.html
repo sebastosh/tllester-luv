@@ -17,7 +17,7 @@
     </div>
 
     <div class="ab-block-post-grid-excerpt">
-      {{ .Summary }}
+      {{ .Summary | plainify | truncate 160 "..." }}
     </div>
   </div>
 </article>
