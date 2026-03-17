@@ -1,0 +1,31 @@
+{{ $pages := where .Site.RegularPages "Type" "posts" }}
+{{ with .PrevInSection }}
+  {{ $hasPrev := true }}
+{{ end }}
+{{ with .NextInSection }}
+  {{ $hasNext := true }}
+{{ end }}
+
+{{ if or (.PrevInSection) (.NextInSection) }}
+<nav class="post-navigation" role="navigation">
+  <div class="nav-links">
+    {{ with .PrevInSection }}
+    <div class="nav-previous">
+      <a href="{{ .Permalink }}" rel="prev">
+        <span class="meta-nav-text meta-title">Previous:</span>
+        <span class="post-title">{{ .Title }}</span>
+      </a>
+    </div>
+    {{ end }}
+
+    {{ with .NextInSection }}
+    <div class="nav-next">
+      <a href="{{ .Permalink }}" rel="next">
+        <span class="meta-nav-text meta-title">Next:</span>
+        <span class="post-title">{{ .Title }}</span>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</nav>
+{{ end }}

@@ -1,0 +1,11 @@
+{{- $url := .Destination -}}
+{{- if hasPrefix $url "images/" -}}
+  {{- $section := .Page.Section -}}
+  {{- $type := .Page.Type -}}
+  {{- if or (eq $section "posts") (eq $type "post") -}}
+    {{- $url = printf "/posts/%s" $url -}}
+  {{- else if or (eq $section "pages") (eq $type "page") -}}
+    {{- $url = printf "/pages/%s" $url -}}
+  {{- end -}}
+{{- end -}}
+<img src="{{ $url }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>

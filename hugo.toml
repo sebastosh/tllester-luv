@@ -1,3 +1,222 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://luv.tllester.info/'
 languageCode = 'en-us'
-title = 'My New Hugo Project'
+title = "Luv 'til it Hurts"
+
+[taxonomies]
+  category = 'categories'
+
+[params]
+  description = "Luv 'til it Hurts imagines faster resources for HIV-related activism."
+  author = "Todd Lanier Lester"
+  footerText = "Luv 'til it Hurts &copy; 2024"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Pagination
+[pagination]
+  pagerSize = 10
+
+# Permalinks
+[permalinks]
+  posts = '/:slug/'
+  pages = '/:slug/'
+
+# Main menu matching WordPress structure
+[[menus.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "New Site"
+  url = "/new-site/"
+  weight = 2
+
+[[menus.main]]
+  name = "Play Me"
+  url = "/play-me/"
+  weight = 3
+
+[[menus.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4
+
+[[menus.main]]
+  name = "FAQ"
+  url = "/faq/"
+  weight = 41
+  parent = "About"
+
+[[menus.main]]
+  name = "The Game"
+  url = "/the-game/"
+  weight = 42
+  parent = "About"
+
+[[menus.main]]
+  name = "What about Elton"
+  url = "/what-about-elton/"
+  weight = 43
+  parent = "About"
+
+[[menus.main]]
+  name = "Encounters"
+  url = "/encounters/"
+  weight = 44
+  parent = "About"
+
+[[menus.main]]
+  name = "Features"
+  url = "/features/"
+  weight = 5
+
+[[menus.main]]
+  name = "Luv Letters"
+  url = "/luv-letters/"
+  weight = 51
+  parent = "Features"
+
+[[menus.main]]
+  name = "HIV Stories"
+  url = "/hiv-stories/"
+  weight = 52
+  parent = "Features"
+
+[[menus.main]]
+  name = "Launch Pad"
+  url = "/launch-pad/"
+  weight = 53
+  parent = "Features"
+
+[[menus.main]]
+  name = "Love Positive Women"
+  url = "/love-women/"
+  weight = 54
+  parent = "Features"
+
+[[menus.main]]
+  name = "Texts"
+  url = "/essays/"
+  weight = 55
+  parent = "Features"
+
+[[menus.main]]
+  name = "Campaigns"
+  url = "/campaigns/"
+  weight = 56
+  parent = "Features"
+
+[[menus.main]]
+  name = "Mixed Media"
+  url = "/mixed-media/"
+  weight = 57
+  parent = "Features"
+
+[[menus.main]]
+  name = "Field Notes"
+  url = "/field-notes/"
+  weight = 58
+  parent = "Features"
+
+[[menus.main]]
+  name = "Coalition"
+  url = "/coalition/"
+  weight = 6
+
+[[menus.main]]
+  name = "Every Where Alien"
+  url = "/every-where-alien/"
+  weight = 61
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Love Positive Women"
+  url = "/lovewomen/"
+  weight = 62
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Humans As Hosts"
+  url = "/humans-as-hosts/"
+  weight = 63
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "House of Zion"
+  url = "/house-of-zion/"
+  weight = 64
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "E&H LAB"
+  url = "/eh-lab/"
+  weight = 65
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "ANKH Association"
+  url = "/ankh-association/"
+  weight = 66
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Luciérnagas"
+  url = "/luciernagas/"
+  weight = 67
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "MetaMorphineMachine FuriosaXXX"
+  url = "/metamorphinemachinefuriosaxxx/"
+  weight = 68
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Think Twice Collective"
+  url = "/think-twice-collective/"
+  weight = 69
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Nhimbe Trust"
+  url = "/nhimbe-trust/"
+  weight = 70
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "ArtHIVism"
+  url = "/arthivism/"
+  weight = 71
+  parent = "Coalition"
+
+[[menus.main]]
+  name = "Timeline"
+  url = "/timeline/"
+  weight = 7
+
+[[menus.main]]
+  name = "ACT I"
+  url = "/act-i/"
+  weight = 71
+  parent = "Timeline"
+
+[[menus.main]]
+  name = "ACT II"
+  url = "/acts/"
+  weight = 72
+  parent = "Timeline"
+
+[[menus.main]]
+  name = "ACT III"
+  url = "/act-iii/"
+  weight = 73
+  parent = "Timeline"
+
+[[menus.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 8

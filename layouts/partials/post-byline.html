@@ -1,0 +1,5 @@
+<p class="entry-byline">
+  <span class="entry-byline-author">{{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.author }}{{ end }}</span>
+  <span class="entry-byline-on">on</span>
+  <span class="entry-byline-date">{{ .Date.Format "January 2, 2006" }}</span>
+</p>

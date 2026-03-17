@@ -1,0 +1,64 @@
+<header id="masthead" class="site-header luv-header">
+  <a href="{{ .Site.BaseURL }}" rel="home">
+    <img src="/images/luvwebhead.png" alt="{{ .Site.Title }}" style="width: 100%; display: block;">
+  </a>
+
+  <div class="search-drawer" aria-expanded="false" role="region">
+    <div class="container">
+      <div class="drawer-search">
+        <div class="big-search">
+          <form role="search" method="get" class="searchform" action="{{ .Site.BaseURL }}search/">
+            <input type="search" class="search-input" placeholder="Search …" value="" name="q">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-navigation">
+    {{/* Mobile menu drawer */}}
+    <div class="mobile-navigation">
+      <button class="menu-toggle button-toggle">
+        <span><i class="fa fa-bars"></i> Menu</span>
+        <span><i class="fa fa-times"></i> Close</span>
+      </button>
+    </div>
+
+    <div class="drawer-wrap">
+      <div class="drawer drawer-menu-explore">
+        <nav id="drawer-navigation" class="drawer-navigation">
+          {{ partial "mobile-menu.html" . }}
+        </nav>
+        <form role="search" method="get" class="searchform" action="{{ .Site.BaseURL }}search/">
+          <input type="search" class="search-input" placeholder="Search …" value="" name="q">
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="site-identity clear">
+        <div class="top-navigation-right">
+          <nav id="site-navigation" class="main-navigation">
+            {{ partial "nav-menu.html" . }}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{/* Archive/search page titles */}}
+  {{ if or .IsSection (eq .Kind "taxonomy") (eq .Kind "term") }}
+  <div class="container text-container">
+    <div class="header-text">
+      <div class="page-titles">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}
+        <div class="entry-subtitle">
+          <p>{{ . }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</header>

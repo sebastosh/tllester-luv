@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    {{/* Hero image */}}
+    <div class="home-hero">
+      <img src="/pages/images/2SIDE-01-1-1.jpg" alt="Luv 'til it Hurts — Game Plan">
+    </div>
+
+    {{/* Post grid */}}
+    <div class="ab-block-post-grid">
+      <div class="ab-post-grid-items is-grid columns-3">
+        {{ $posts := where .Site.RegularPages "Section" "posts" }}
+        {{ range $posts.ByDate.Reverse }}
+          {{ partial "grid-post.html" . }}
+        {{ end }}
+      </div>
+    </div>
+  </main>
+</section>
+{{ end }}

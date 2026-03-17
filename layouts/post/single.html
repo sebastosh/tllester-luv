@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    <article id="post-{{ .Params.id }}" class="post type-post{{ with .Params.coverImage }} with-featured-image{{ else }} without-featured-image{{ end }}">
+      <div class="post-content">
+        <header class="entry-header">
+          <h1 class="entry-title">{{ .Title }}</h1>
+          {{ partial "post-byline.html" . }}
+        </header>
+
+        {{ with .Params.coverImage }}
+        <div class="featured-image">
+          <img src="/posts/images/{{ . }}" alt="{{ $.Title }}">
+        </div>
+        {{ end }}
+
+        <div class="entry-content">
+          {{ .Content }}
+
+          {{ partial "post-meta.html" . }}
+
+          {{ partial "post-nav.html" . }}
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+{{ end }}

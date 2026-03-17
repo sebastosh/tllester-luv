@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    <article id="post-{{ .Params.id }}" class="post type-page">
+      <div class="post-content">
+        <header class="entry-header">
+          <h2 class="entry-title">{{ .Title }}</h2>
+        </header>
+
+        {{ with .Params.coverImage }}
+        <div class="featured-image">
+          <img src="/pages/images/{{ . }}" alt="{{ $.Title }}">
+        </div>
+        {{ end }}
+
+        <div class="entry-content">
+          {{ .Content }}
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+{{ end }}

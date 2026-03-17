@@ -1,0 +1,23 @@
+{{ $currentPage := . }}
+<ul id="menu-mobile" class="menu">
+  {{ range .Site.Menus.main }}
+    {{ if .HasChildren }}
+      <li class="menu-item menu-item-has-children{{ if $currentPage.IsMenuCurrent "main" . }} current-menu-item{{ end }}">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+        <ul class="sub-menu">
+          {{ range .Children }}
+            <li class="menu-item{{ if $currentPage.IsMenuCurrent "main" . }} current-menu-item{{ end }}">
+              <a href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+          {{ end }}
+        </ul>
+        <button class="toggle-sub" aria-expanded="false"><i class="fa fa-angle-down"></i></button>
+      </li>
+    {{ else if .Parent }}
+    {{ else }}
+      <li class="menu-item{{ if $currentPage.IsMenuCurrent "main" . }} current-menu-item{{ end }}">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>

@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ $isPost := or (eq .Type "post") (eq .Type "posts") (eq .Section "posts") }}
+{{ $isPage := or (eq .Type "page") (eq .Type "pages") (eq .Section "pages") }}
+<div id="primary" class="content-area">
+  <main id="main" class="site-main">
+
+    <article id="post-{{ .Params.id }}" class="post{{ if $isPost }} type-post{{ end }}{{ if $isPage }} type-page{{ end }}">
+      <div class="post-content">
+        <header class="entry-header">
+          {{ if $isPost }}
+            <h1 class="entry-title">{{ .Title }}</h1>
+            {{ partial "post-byline.html" . }}
+          {{ else }}
+            <h2 class="entry-title">{{ .Title }}</h2>
+          {{ end }}
+        </header>
+
+        {{ with .Params.coverImage }}
+        <div class="featured-image">
+          {{ if $isPost }}
+            <img src="/posts/images/{{ . }}" alt="{{ $.Title }}">
+          {{ else }}
+            <img src="/pages/images/{{ . }}" alt="{{ $.Title }}">
+          {{ end }}
+        </div>
+        {{ end }}
+
+        <div class="entry-content">
+          {{ .Content }}
+
+          {{ if $isPost }}
+            {{ partial "post-meta.html" . }}
+            {{ partial "post-nav.html" . }}
+          {{ end }}
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+{{ end }}

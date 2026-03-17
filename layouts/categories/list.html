@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section id="primary" class="content-area">
+  <main id="main" class="site-main">
+    <div id="post-wrap">
+      {{ range .Paginator.Pages }}
+        {{ partial "content-post.html" . }}
+      {{ end }}
+    </div>
+
+    {{ template "_internal/pagination.html" . }}
+  </main>
+</section>
+{{ end }}

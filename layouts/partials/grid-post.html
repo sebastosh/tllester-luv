@@ -1,0 +1,23 @@
+<article class="ab-post-grid-item">
+  {{ with .Params.coverImage }}
+  <div class="ab-block-post-grid-image">
+    <a href="{{ $.Permalink }}" rel="bookmark">
+      <img src="/posts/images/{{ . }}" alt="{{ $.Title }}">
+    </a>
+  </div>
+  {{ end }}
+
+  <div class="ab-block-post-grid-text">
+    <h3 class="ab-block-post-grid-title">
+      <a href="{{ .Permalink }}" rel="bookmark">{{ .Title }}</a>
+    </h3>
+
+    <div class="ab-block-post-grid-author">
+      {{ with .Params.author }}{{ . }}{{ else }}{{ $.Site.Params.author }}{{ end }}
+    </div>
+
+    <div class="ab-block-post-grid-excerpt">
+      {{ .Summary }}
+    </div>
+  </div>
+</article>

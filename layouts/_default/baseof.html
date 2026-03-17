@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Muli:wght@700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/fonts/fontawesome/css/fontawesome-all.css">
+  <link rel="stylesheet" href="/css/style.css">
+  {{ hugo.Generator }}
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+</head>
+
+<body class="{{ if .IsHome }}home blog{{ end }}{{ if or (eq .Type "post") (eq .Type "posts") (eq .Section "posts") }}{{ if .IsPage }} single single-post{{ end }}{{ end }}{{ if or (eq .Type "page") (eq .Type "pages") (eq .Section "pages") }}{{ if .IsPage }} page{{ end }}{{ end }}{{ if .Params.coverImage }} has-featured-image{{ end }} featured-image-wide">
+
+  {{ partial "header.html" . }}
+
+  <div id="page" class="hfeed site container">
+    <div id="content" class="site-content">
+      {{ block "main" . }}{{ end }}
+    </div><!-- #content -->
+  </div><!-- #page -->
+
+  {{ partial "footer.html" . }}
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
